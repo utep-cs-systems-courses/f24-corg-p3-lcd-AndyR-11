@@ -13,7 +13,7 @@ all:pongmain.elf
 
 
 #additional rules for files
-pongmain.elf: ${COMMON_OBJECTS} pongmain.o wdt_handler.o buzzer.o
+pongmain.elf: ${COMMON_OBJECTS} pongmain.o wdt_handler.o buzzer.o siren.o
 	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^ -lTimer -lLcd
 
 
@@ -23,3 +23,8 @@ load: pongmain.elf
 
 clean:
 	rm -f *.o *.elf
+
+siren.o: siren.s siren.h
+
+buzzer.o: buzzer.c buzzer.h
+

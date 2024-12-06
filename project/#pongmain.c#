@@ -144,9 +144,6 @@ void pause_game() {
   paused = !paused; // Toggle the paused state
 
   if (paused) {
-    /*buzzer_set_period(1500); // Play "pause" sound
-    __delay_cycles(250000); // Small delay for the sound
-    buzzer_off();*/
     // Display "Paused" message at the center of the screen
     drawString11x16(screenWidth / 2 - 33, screenHeight / 2 - 8, "Paused", COLOR_WHITE, COLOR_BLACK);
     buzzer_set_period(update_siren_frequency());
@@ -249,3 +246,4 @@ void __interrupt_vec(PORT2_VECTOR) Port_2() {
     switch_interrupt_handler();
   }
  }
+ 
